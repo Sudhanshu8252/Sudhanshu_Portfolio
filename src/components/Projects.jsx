@@ -4,22 +4,13 @@ import { FaGithub as Github } from 'react-icons/fa';
 
 const projects = [
   {
-    title: "Job Portal Web Application",
-    date: "Dec 2025 – Jan 2026",
-    description: "Developed a full-stack recruitment platform using the MERN stack, enabling management of 25+ job listings with secure role-based access control. Implemented JWT-based authentication and optimized RESTful APIs to ensure efficient data handling, improved performance, and a seamless user experience.",
+    title: "AI-Powered Resume Builder",
+    date: "Feb 2026 – Mar 2026",
+    description: "Engineered an AI-powered resume builder platform using the MERN stack, enabling users to create, edit, and manage professional resumes through dynamic and customizable templates. Implemented JWT-based authentication along with role-based access control to ensure secure handling of user data. Integrated AI-driven content generation features to assist users in crafting high-quality, ATS-optimized resume sections. Optimized RESTful APIs and database queries to improve performance, ensuring efficient data processing and a seamless user experience.",
     tech: ["MERN Stack", "RESTful APIs", "JWT Authentication", "Role-Based Access Control (RBAC)", "MongoDB"],
-    image: "/project-1.png",
-    github: "https://github.com/Sudhanshu8252/Job_Portal",
-    live: "https://job-kohl-nu.vercel.app/"
-  },
-  {
-    title: "Web-Based IDE",
-    date: "Oct 2025 – Nov 2025",
-    description: "I developed an in-browser coding environment using React.js that allows users to write and execute HTML, CSS, and JavaScript in real time with instant preview. The platform supports multi-file projects and is built with a modular architecture of 12+ reusable components, making it scalable, maintainable, and efficient for feature expansion while delivering a smooth and interactive coding experience.",
-    tech: ["In-Browser Code Editor", "Real-Time Code Execution", "React.js", "Modular Component Architecture", "JavaScript (HTML, CSS, JS Execution)"],
-    image: "/project-2.png",
-    github: "https://github.com/Sudhanshu8252/Web-Based-Ide",
-    live: "https://web-based-ide-delta.vercel.app/"
+    image: "/Project-1.png",
+    github: "https://github.com/Sudhanshu8252/Resume-Builder-MERN",
+    live: "https://resume-builder-snowy-rho.vercel.app/"
   },
   {
     title: "Expense Tracker",
@@ -29,7 +20,17 @@ const projects = [
     image: "/project-3.png",
     github: "https://github.com/Sudhanshu8252/Expense_Tracker",
     live: "https://expensetracker-topaz-xi.vercel.app/"
+  },
+  {
+    title: "Web-Based IDE",
+    date: "Oct 2025 – Nov 2025",
+    description: "I developed an in-browser coding environment using React.js that allows users to write and execute HTML, CSS, and JavaScript in real time with instant preview. The platform supports multi-file projects and is built with a modular architecture of 12+ reusable components, making it scalable, maintainable, and efficient for feature expansion while delivering a smooth and interactive coding experience.",
+    tech: ["In-Browser Code Editor", "Real-Time Code Execution", "React.js", "Modular Component Architecture", "JavaScript (HTML, CSS, JS Execution)"],
+    image: "/project-2.png",
+    github: "https://github.com/Sudhanshu8252/Web-Based-Ide",
+    live: "https://web-based-ide-delta.vercel.app/"
   }
+  
 ];
 
 const Projects = () => {
