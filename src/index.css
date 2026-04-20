@@ -1,0 +1,776 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --scrollbar-thumb: #374151;
+  --scrollbar-track: #0a0a0a;
+  --bg: #0a0a0a;
+  --surface: #111111;
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-nav-bg: rgba(10, 10, 10, 0.7);
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --input-bg: rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] {
+  --scrollbar-thumb: #c4b5fd;
+  --scrollbar-track: #f0f0f5;
+  --bg: #f5f3ff;
+  --surface: #ffffff;
+  --text-primary: #1e1b4b;
+  --text-secondary: #4338ca;
+  --text-muted: #6366f1;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(99, 102, 241, 0.15);
+  --glass-nav-bg: rgba(245, 243, 255, 0.85);
+  --card-shadow: rgba(99, 102, 241, 0.08);
+  --input-bg: rgba(255, 255, 255, 0.9);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #4b5563;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 30px var(--card-shadow);
+  border-radius: 1rem;
+  transition: background 0.4s ease, border 0.4s ease, box-shadow 0.4s ease;
+  will-change: transform, opacity;
+}
+
+@media (max-width: 768px) {
+  .glass-card {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+.glass-nav {
+  background: var(--glass-nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  transition: background 0.4s ease;
+}
+
+@media (max-width: 768px) {
+  .glass-nav {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #6366f1, #ec4899, #14b8a6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ===== LIGHT THEME — COMPREHENSIVE OVERRIDES ===== */
+
+/* All white text → deep indigo */
+[data-theme="light"] .text-white {
+  color: #1e1b4b !important;
+}
+
+/* Secondary text */
+[data-theme="light"] .text-text-secondary {
+  color: #4c4a6e !important;
+}
+
+/* Muted text */
+[data-theme="light"] .text-text-muted {
+  color: #7c7a9a !important;
+}
+
+/* Backgrounds */
+[data-theme="light"] .bg-background {
+  background-color: var(--bg) !important;
+}
+
+[data-theme="light"] .bg-black\/40,
+[data-theme="light"] .bg-black\/60,
+[data-theme="light"] .bg-black\/80 {
+  background-color: rgba(245, 243, 255, 0.9) !important;
+}
+
+/* Input fields */
+[data-theme="light"] input,
+[data-theme="light"] textarea {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  color: #1e1b4b !important;
+  border-color: rgba(99, 102, 241, 0.2) !important;
+}
+
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: #a0a0c0 !important;
+}
+
+[data-theme="light"] input:focus,
+[data-theme="light"] textarea:focus {
+  border-color: #6366f1 !important;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.15) !important;
+}
+
+/* Borders */
+[data-theme="light"] .border-white\/10,
+[data-theme="light"] .border-white\/20,
+[data-theme="light"] .border-white\/5 {
+  border-color: rgba(99, 102, 241, 0.12) !important;
+}
+
+/* Light bg fills */
+[data-theme="light"] .bg-white\/5,
+[data-theme="light"] .bg-white\/10 {
+  background-color: rgba(99, 102, 241, 0.06) !important;
+}
+
+[data-theme="light"] .hover\:bg-white\/10:hover {
+  background-color: rgba(99, 102, 241, 0.1) !important;
+}
+
+/* Primary button → indigo filled */
+[data-theme="light"] .btn-primary {
+  background-color: #4f46e5 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3) !important;
+}
+
+[data-theme="light"] .btn-primary:hover {
+  background-color: #4338ca !important;
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4) !important;
+}
+
+/* Secondary button */
+[data-theme="light"] .btn-secondary {
+  border-color: rgba(99, 102, 241, 0.3) !important;
+  color: #4f46e5 !important;
+}
+
+[data-theme="light"] .btn-secondary:hover {
+  background-color: rgba(99, 102, 241, 0.08) !important;
+}
+
+/* Resume nav link */
+[data-theme="light"] nav a[href="/Resume.pdf"] {
+  border-color: rgba(99, 102, 241, 0.2) !important;
+  color: #4f46e5 !important;
+}
+
+[data-theme="light"] nav a[href="/Resume.pdf"]:hover {
+  background-color: #4f46e5 !important;
+  color: #ffffff !important;
+}
+
+/* Nav text */
+[data-theme="light"] nav .cursor-pointer {
+  color: #4c4a6e !important;
+}
+
+[data-theme="light"] nav .cursor-pointer:hover {
+  color: #4f46e5 !important;
+}
+
+/* Theme colors */
+[data-theme="light"] .text-primary {
+  color: #4f46e5 !important;
+}
+
+[data-theme="light"] .text-secondary {
+  color: #7c3aed !important;
+}
+
+[data-theme="light"] .text-accent {
+  color: #0d9488 !important;
+}
+
+/* Hover text on cards */
+[data-theme="light"] .group:hover .group-hover\:text-primary {
+  color: #4f46e5 !important;
+}
+
+/* Tech tag hovers */
+[data-theme="light"] .hover\:border-primary\/50:hover,
+[data-theme="light"] .hover\:border-primary\/30:hover {
+  border-color: rgba(79, 70, 229, 0.4) !important;
+}
+
+[data-theme="light"] .hover\:text-primary:hover {
+  color: #4f46e5 !important;
+}
+
+/* Social icon hover bg */
+[data-theme="light"] .hover\:bg-primary:hover {
+  background-color: #4f46e5 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .hover\:bg-secondary:hover {
+  background-color: #7c3aed !important;
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .hover\:bg-accent:hover {
+  background-color: #0d9488 !important;
+  color: #ffffff !important;
+}
+
+/* Colored bg elements */
+[data-theme="light"] .bg-primary\/20 {
+  background-color: rgba(79, 70, 229, 0.12) !important;
+}
+
+[data-theme="light"] .bg-secondary\/20 {
+  background-color: rgba(124, 58, 237, 0.12) !important;
+}
+
+[data-theme="light"] .bg-accent\/20 {
+  background-color: rgba(13, 148, 136, 0.12) !important;
+}
+
+[data-theme="light"] .bg-secondary\/10 {
+  background-color: rgba(124, 58, 237, 0.08) !important;
+}
+
+/* Gradient blobs */
+[data-theme="light"] .mesh-blob-1 {
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%) !important;
+}
+
+[data-theme="light"] .mesh-blob-2 {
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%) !important;
+}
+
+[data-theme="light"] .mesh-blob-3 {
+  background: radial-gradient(circle, rgba(13, 148, 136, 0.06) 0%, transparent 70%) !important;
+}
+
+/* Footer border */
+[data-theme="light"] .border-t {
+  border-color: rgba(99, 102, 241, 0.1) !important;
+}
+
+/* Hover to white on colored bg */
+[data-theme="light"] .hover\:text-white:hover {
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .hover\:bg-white:hover {
+  background-color: #4f46e5 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .hover\:text-black:hover {
+  color: #ffffff !important;
+}
+
+/* Scroll to top button */
+[data-theme="light"] .bg-primary\/80 {
+  background-color: rgba(79, 70, 229, 0.85) !important;
+}
+
+/* Success/Error messages */
+[data-theme="light"] .text-green-400 {
+  color: #16a34a !important;
+}
+
+[data-theme="light"] .bg-green-400\/10 {
+  background-color: rgba(22, 163, 74, 0.1) !important;
+}
+
+[data-theme="light"] .text-red-400 {
+  color: #dc2626 !important;
+}
+
+[data-theme="light"] .bg-red-400\/10 {
+  background-color: rgba(220, 38, 38, 0.1) !important;
+}
+
+/* ===== SKILLS CARDS LIGHT THEME ===== */
+
+/* Skills section bg */
+[data-theme="light"] .bg-surface\/30 {
+  background-color: rgba(237, 233, 254, 0.3) !important;
+}
+
+/* Skills cards - beautiful colored cards */
+[data-theme="light"] #skills .glass-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(245,243,255,0.95) 100%) !important;
+  border: 1px solid rgba(99, 102, 241, 0.12) !important;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.08), 0 1px 3px rgba(0,0,0,0.04) !important;
+}
+
+[data-theme="light"] #skills .glass-card:hover {
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.15), 0 2px 6px rgba(0,0,0,0.06) !important;
+}
+
+/* Skills card title */
+[data-theme="light"] #skills .glass-card h3 {
+  color: #1e1b4b !important;
+  border-bottom-color: rgba(99, 102, 241, 0.15) !important;
+}
+
+/* Skills card list items */
+[data-theme="light"] #skills .glass-card li {
+  color: #3b3766 !important;
+}
+
+[data-theme="light"] #skills .glass-card li span {
+  color: #3b3766 !important;
+}
+
+/* Skills card group hover text */
+[data-theme="light"] #skills .group:hover li {
+  color: #1e1b4b !important;
+}
+
+[data-theme="light"] #skills .group:hover li span {
+  color: #1e1b4b !important;
+}
+
+/* First card - Frontend - blue accent */
+[data-theme="light"] #skills .glass-card:nth-child(1) {
+  background: linear-gradient(135deg, rgba(239,246,255,0.95) 0%, rgba(219,234,254,0.7) 100%) !important;
+  border-color: rgba(59, 130, 246, 0.15) !important;
+}
+
+[data-theme="light"] #skills .glass-card:nth-child(1):hover {
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.15) !important;
+}
+
+/* Second card - Backend - green accent */
+[data-theme="light"] #skills .glass-card:nth-child(2) {
+  background: linear-gradient(135deg, rgba(240,253,244,0.95) 0%, rgba(220,252,231,0.7) 100%) !important;
+  border-color: rgba(34, 197, 94, 0.15) !important;
+}
+
+[data-theme="light"] #skills .glass-card:nth-child(2):hover {
+  box-shadow: 0 8px 30px rgba(34, 197, 94, 0.15) !important;
+}
+
+/* Third card - Database - purple accent */
+[data-theme="light"] #skills .glass-card:nth-child(3) {
+  background: linear-gradient(135deg, rgba(250,245,255,0.95) 0%, rgba(243,232,255,0.7) 100%) !important;
+  border-color: rgba(168, 85, 247, 0.15) !important;
+}
+
+[data-theme="light"] #skills .glass-card:nth-child(3):hover {
+  box-shadow: 0 8px 30px rgba(168, 85, 247, 0.15) !important;
+}
+
+/* Fourth card - Tools - orange accent */
+[data-theme="light"] #skills .glass-card:nth-child(4) {
+  background: linear-gradient(135deg, rgba(255,247,237,0.95) 0%, rgba(254,235,200,0.7) 100%) !important;
+  border-color: rgba(249, 115, 22, 0.15) !important;
+}
+
+[data-theme="light"] #skills .glass-card:nth-child(4):hover {
+  box-shadow: 0 8px 30px rgba(249, 115, 22, 0.15) !important;
+}
+
+/* Skill glow blur */
+[data-theme="light"] .bg-primary\/5 {
+  background-color: rgba(79, 70, 229, 0.03) !important;
+}
+
+/* ===== FLOATING NAV LIGHT THEME ===== */
+
+/* Floating dock container */
+[data-theme="light"] .fixed.bottom-6 .glass-card,
+[data-theme="light"] .fixed.bottom-6.glass-card {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(99, 102, 241, 0.15) !important;
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Floating dock icon colors */
+[data-theme="light"] .fixed .text-text-muted {
+  color: #5b5880 !important;
+}
+
+/* Dock icon hover */
+[data-theme="light"] .fixed .hover\:text-white:hover {
+  color: #fff !important;
+  background-color: #4f46e5 !important;
+}
+
+[data-theme="light"] .fixed .hover\:text-primary:hover {
+  color: #4f46e5 !important;
+}
+
+[data-theme="light"] .fixed .hover\:text-secondary:hover {
+  color: #7c3aed !important;
+}
+
+[data-theme="light"] .fixed .hover\:text-accent:hover {
+  color: #0d9488 !important;
+}
+
+/* Dock divider lines */
+[data-theme="light"] .fixed .bg-white\/10 {
+  background-color: rgba(99, 102, 241, 0.12) !important;
+}
+
+/* Dock tooltips */
+[data-theme="light"] .fixed .bg-black\/80 {
+  background-color: rgba(30, 27, 75, 0.92) !important;
+  color: white !important;
+}
+
+/* Scroll to top button */
+[data-theme="light"] .fixed .bg-primary\/80 {
+  background-color: #4f46e5 !important;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35) !important;
+}
+
+[data-theme="light"] .fixed .shadow-primary\/30 {
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.25) !important;
+}
+
+/* ===== EXTRA LIGHT THEME COVERAGE ===== */
+
+/* All headings, titles, and font-display text */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4 {
+  color: #1e1b4b !important;
+}
+
+/* Section titles */
+[data-theme="light"] .section-title {
+  color: #1e1b4b !important;
+}
+
+[data-theme="light"] .section-subtitle {
+  color: #5b5880 !important;
+}
+
+/* Hero section heading */
+[data-theme="light"] .font-display {
+  color: #1e1b4b !important;
+}
+
+/* Hero code editor styling */
+[data-theme="light"] .font-mono {
+  color: #4c4a6e !important;
+}
+
+/* Inline code/code block text */
+[data-theme="light"] .shadow-inner {
+  background-color: rgba(245, 243, 255, 0.95) !important;
+}
+
+/* Active nav link */
+[data-theme="light"] .text-white.font-medium {
+  color: #4f46e5 !important;
+}
+
+/* All link/anchor text */
+[data-theme="light"] a {
+  color: inherit;
+}
+
+/* Contact info text and labels */
+[data-theme="light"] label {
+  color: #5b5880 !important;
+}
+
+/* Any remaining white text on the page */
+[data-theme="light"] .text-white\/90 {
+  color: #1e1b4b !important;
+}
+
+/* Education cards */
+[data-theme="light"] .text-lg.font-medium {
+  color: #1e1b4b !important;
+}
+
+/* Hover text-white (keep white when on colored bg) */
+[data-theme="light"] .hover\\:text-white:hover {
+  color: #fff !important;
+}
+
+/* Group hover text change */
+[data-theme="light"] .group-hover\\:text-white {
+  color: #1e1b4b !important;
+}
+
+[data-theme="light"] .group:hover .group-hover\\:text-white {
+  color: #4f46e5 !important;
+}
+
+/* Floating nav bg-black tooltips */
+[data-theme="light"] .bg-black\/80 {
+  background-color: rgba(30, 27, 75, 0.9) !important;
+}
+
+[data-theme="light"] .bg-black\/90 {
+  background-color: rgba(30, 27, 75, 0.9) !important;
+}
+
+/* Floating nav dock */
+[data-theme="light"] .bg-black\/60 {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Contact section icon text */
+[data-theme="light"] .text-primary {
+  color: #4f46e5 !important;
+}
+
+/* Skills - group hover text */
+[data-theme="light"] .transition-colors {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Education timeline dot */
+[data-theme="light"] .bg-primary {
+  background-color: #4f46e5 !important;
+}
+
+/* Text gradient fix for light mode */
+[data-theme="light"] .text-gradient {
+  background: linear-gradient(135deg, #4f46e5, #9333ea, #0d9488) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Typing animation cursor */
+[data-theme="light"] .Typewriter__cursor {
+  color: #4f46e5 !important;
+}
+
+/* Project card image overlay in light mode */
+[data-theme="light"] .bg-primary\/20.mix-blend-overlay {
+  background-color: rgba(79, 70, 229, 0.1) !important;
+}
+
+/* Contact form button when submitting */
+[data-theme="light"] .opacity-70 {
+  opacity: 0.7;
+}
+
+/* Footer */
+[data-theme="light"] footer {
+  background-color: rgba(245, 243, 255, 0.5) !important;
+}
+
+/* Selection highlight */
+[data-theme="light"] ::selection {
+  background-color: rgba(79, 70, 229, 0.2) !important;
+  color: #1e1b4b !important;
+}
+
+/* Drop shadow cleanup */
+[data-theme="light"] .drop-shadow-lg {
+  filter: drop-shadow(0 4px 6px rgba(79, 70, 229, 0.15)) !important;
+}
+
+/* Experience/Education date text */
+[data-theme="light"] .text-xs {
+  color: #5b5880 !important;
+}
+
+/* Hero social icons */
+[data-theme="light"] .hover\\:text-white:hover {
+  color: #ffffff !important;
+}
+
+/* Inline span text */
+[data-theme="light"] span {
+  color: inherit;
+}
+
+/* Loader bg */
+[data-theme="light"] .bg-background.min-h-screen {
+  background-color: #f5f3ff !important;
+}
+
+.bg-gradient-mesh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.mesh-blob-1 {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: blob 20s infinite alternate linear;
+}
+
+@media (max-width: 768px) {
+  .mesh-blob-1, .mesh-blob-2, .mesh-blob-3 {
+    animation: none !important;
+  }
+}
+
+.mesh-blob-2 {
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: blob 25s infinite alternate-reverse linear;
+  animation-delay: 2s;
+}
+
+.mesh-blob-3 {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: blob 22s infinite alternate linear;
+  animation-delay: 5s;
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-12 w-full;
+  }
+  
+  .section-padding {
+    @apply py-12 sm:py-16 md:py-24 lg:py-32;
+  }
+  
+  .section-title {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 inline-block;
+  }
+  
+  .section-subtitle {
+    @apply text-text-muted text-base sm:text-lg md:text-xl max-w-2xl mb-8 sm:mb-12;
+  }
+  
+  .btn-primary {
+    @apply px-5 sm:px-6 py-3 rounded-full font-medium active:scale-95 transition-all duration-300 bg-white text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:bg-gray-100 flex items-center justify-center gap-2 text-sm sm:text-base;
+  }
+  
+  .btn-secondary {
+    @apply px-5 sm:px-6 py-3 rounded-full font-medium active:scale-95 transition-all duration-300 bg-transparent border border-white/20 text-white hover:bg-white/10 flex items-center justify-center gap-2 text-sm sm:text-base;
+  }
+}
+
+/* ===== MOBILE-FIRST RESPONSIVE IMPROVEMENTS ===== */
+
+/* Prevent horizontal overflow on mobile */
+@media (max-width: 640px) {
+  html, body {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Ensure the navbar background shows on mobile when scrolled */
+  nav.glass-nav {
+    background: var(--glass-nav-bg) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Reduce heavy hover effects on touch devices */
+  .hover\:-translate-y-3:hover {
+    transform: translateY(-4px) !important;
+  }
+  
+  /* Make sure the mobile menu fills properly */
+  .glass-nav {
+    background: var(--glass-nav-bg) !important;
+  }
+
+  /* Tighter section headings on mobile */
+  .section-title {
+    word-break: break-word;
+  }
+
+  /* Reduce glass blur on mobile for performance */
+  .glass-card {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+/* Disable heavy animations and transitions on low-power devices */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Safe area insets for phones with notches */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .fixed.bottom-5,
+  .fixed.bottom-6 {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
